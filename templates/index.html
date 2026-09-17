@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Voice Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <!-- ================================= -->
+    <!-- HEADER -->
+    <!-- ================================= -->
+
+    <header>
+
+        <h1>🤖 AI Voice Assistant</h1>
+
+        <p>
+            Your Smart Voice & AI Assistant
+        </p>
+
+    </header>
+
+
+    <!-- ================================= -->
+    <!-- STATUS -->
+    <!-- ================================= -->
+
+    <div
+        id="status"
+        class="status"
+    >
+        ● Assistant Standby
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- LANGUAGE -->
+    <!-- ================================= -->
+
+    <div class="language-box">
+
+        <label for="languageSelect">
+            🌐 Language
+        </label>
+
+        <select id="languageSelect">
+
+            <option value="en-IN">
+                English
+            </option>
+
+            <option value="hi-IN">
+                Hindi
+            </option>
+
+            <option value="hi-IN">
+                Hinglish
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- ASSISTANT -->
+    <!-- ================================= -->
+
+    <section class="assistant-section">
+
+        <div
+            id="assistant-circle"
+            class="assistant-circle"
+        >
+
+            <div class="orb">
+
+                <div class="orb-inner"></div>
+
+            </div>
+
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+
+        </div>
+
+
+        <button
+            id="startBtn"
+            class="start-btn"
+        >
+            🎤 Start Assistant
+        </button>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- VOICE OUTPUT -->
+    <!-- ================================= -->
+
+    <section class="output-container">
+
+        <div class="output-card">
+
+            <h3>
+                👤 You Said
+            </h3>
+
+            <p id="userText">
+                Waiting for your command...
+            </p>
+
+        </div>
+
+
+        <div class="output-card">
+
+            <h3>
+                🤖 Assistant
+            </h3>
+
+            <p id="assistantText">
+                Hello Abhay! Main aapki kya sahayata
+                kar sakta hoon?
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- WORLD CLOCK -->
+    <!-- ================================= -->
+
+    <section class="feature-box">
+
+        <h2 class="section-heading">
+            🌍 World Clock
+        </h2>
+
+        <div class="search-row">
+
+            <select id="citySelect">
+
+                <option value="Asia/Kolkata">
+                    Delhi, India
+                </option>
+
+                <option value="America/New_York">
+                    New York, USA
+                </option>
+
+                <option value="America/Los_Angeles">
+                    Los Angeles, USA
+                </option>
+
+                <option value="Europe/London">
+                    London, UK
+                </option>
+
+                <option value="Europe/Paris">
+                    Paris, France
+                </option>
+
+                <option value="Europe/Berlin">
+                    Berlin, Germany
+                </option>
+
+                <option value="Asia/Dubai">
+                    Dubai, UAE
+                </option>
+
+                <option value="Asia/Singapore">
+                    Singapore
+                </option>
+
+                <option value="Asia/Tokyo">
+                    Tokyo, Japan
+                </option>
+
+                <option value="Australia/Sydney">
+                    Sydney, Australia
+                </option>
+
+                <option value="America/Toronto">
+                    Toronto, Canada
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            id="selectedCity"
+            class="clock-display"
+        >
+            Delhi, India
+        </div>
+
+
+        <div
+            id="worldTime"
+            class="clock-display"
+        >
+            --:--:--
+        </div>
+
+
+        <div
+            id="worldDate"
+            class="clock-date"
+        >
+            --
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- WEATHER -->
+    <!-- ================================= -->
+
+    <section class="feature-box">
+
+        <h2 class="section-heading">
+            ☁️ World Weather
+        </h2>
+
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="weatherSearch"
+                placeholder="Enter city..."
+            >
+
+            <button id="weatherSearchBtn">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="quick-cities">
+
+            <button data-city="Delhi">
+                Delhi
+            </button>
+
+            <button data-city="Mumbai">
+                Mumbai
+            </button>
+
+            <button data-city="Noida">
+                Noida
+            </button>
+
+            <button data-city="Lucknow">
+                Lucknow
+            </button>
+
+            <button data-city="London">
+                London
+            </button>
+
+            <button data-city="Tokyo">
+                Tokyo
+            </button>
+
+            <button data-city="Dubai">
+                Dubai
+            </button>
+
+            <button data-city="New York">
+                New York
+            </button>
+
+        </div>
+
+
+        <div
+            id="weatherResult"
+            class="weather-result"
+        >
+
+            <p>
+                Search a city to see weather.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- CALCULATOR -->
+    <!-- ================================= -->
+
+    <section class="feature-box calculator-box">
+
+        <h2 class="section-heading">
+            🧮 3D Calculator
+        </h2>
+
+
+        <input
+            type="text"
+            id="calcDisplay"
+            readonly
+            value="0"
+        >
+
+
+        <div class="calculator-buttons">
+
+            <button
+                class="clear"
+                data-value="C"
+            >
+                C
+            </button>
+
+            <button data-value="(">
+                (
+            </button>
+
+            <button data-value=")">
+                )
+            </button>
+
+            <button
+                class="operator"
+                data-value="/"
+            >
+                ÷
+            </button>
+
+
+            <button data-value="7">
+                7
+            </button>
+
+            <button data-value="8">
+                8
+            </button>
+
+            <button data-value="9">
+                9
+            </button>
+
+            <button
+                class="operator"
+                data-value="*"
+            >
+                ×
+            </button>
+
+
+            <button data-value="4">
+                4
+            </button>
+
+            <button data-value="5">
+                5
+            </button>
+
+            <button data-value="6">
+                6
+            </button>
+
+            <button
+                class="operator"
+                data-value="-"
+            >
+                −
+            </button>
+
+
+            <button data-value="1">
+                1
+            </button>
+
+            <button data-value="2">
+                2
+            </button>
+
+            <button data-value="3">
+                3
+            </button>
+
+            <button
+                class="operator"
+                data-value="+"
+            >
+                +
+            </button>
+
+
+            <button data-value="0">
+                0
+            </button>
+
+            <button data-value=".">
+                .
+            </button>
+
+            <button
+                class="equals"
+                data-value="="
+            >
+                =
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- HISTORY KNOWLEDGE -->
+    <!-- ================================= -->
+
+    <section class="feature-box">
+
+        <h2 class="section-heading">
+            📚 History
+        </h2>
+
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="historySearch"
+                placeholder="Search history topic..."
+            >
+
+            <button id="historySearchBtn">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="history-topics">
+
+            <button data-topic="First Prime Minister of India">
+                First PM of India
+            </button>
+
+            <button data-topic="Second Prime Minister of India">
+                Second PM of India
+            </button>
+
+            <button data-topic="Indian Independence">
+                Indian Independence
+            </button>
+
+            <button data-topic="Revolt of 1857">
+                Revolt of 1857
+            </button>
+
+            <button data-topic="World War I">
+                World War I
+            </button>
+
+            <button data-topic="World War II">
+                World War II
+            </button>
+
+            <button data-topic="Cold War">
+                Cold War
+            </button>
+
+            <button data-topic="French Revolution">
+                French Revolution
+            </button>
+
+        </div>
+
+
+        <div
+            id="historyResult"
+            class="history-result"
+        >
+
+            <p>
+                Select a history topic.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- WEB SEARCH -->
+    <!-- ================================= -->
+
+    <section class="feature-box">
+
+        <h2 class="section-heading">
+            🔎 Web Search & General Questions
+        </h2>
+
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="webSearchInput"
+                placeholder="Ask a question..."
+            >
+
+            <button id="webSearchBtn">
+                Search
+            </button>
+
+        </div>
+
+
+        <div class="quick-questions">
+
+            <button
+                class="quick-question"
+                data-question="Who is the Prime Minister of India?"
+            >
+                Prime Minister of India
+            </button>
+
+            <button
+                class="quick-question"
+                data-question="What is Artificial Intelligence?"
+            >
+                What is AI?
+            </button>
+
+            <button
+                class="quick-question"
+                data-question="What is machine learning?"
+            >
+                Machine Learning
+            </button>
+
+        </div>
+
+
+        <div
+            id="webSearchResult"
+            class="web-search-result"
+        >
+
+            <p>
+                Search results will appear here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- AI CHAT -->
+    <!-- ================================= -->
+
+    <section class="feature-box ai-chat-box">
+
+        <h2 class="section-heading">
+            🤖 AI Chat / Smart Answer
+        </h2>
+
+
+        <p class="feature-description">
+            Ask questions in English, Hindi or Hinglish
+        </p>
+
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="aiChatInput"
+                placeholder="Ask me anything..."
+            >
+
+            <button id="aiChatBtn">
+                Ask AI
+            </button>
+
+        </div>
+
+
+        <div class="quick-questions">
+
+            <button
+                class="ai-question"
+                data-question="What is Python?"
+            >
+                What is Python?
+            </button>
+
+            <button
+                class="ai-question"
+                data-question="What is Machine Learning?"
+            >
+                Machine Learning
+            </button>
+
+            <button
+                class="ai-question"
+                data-question="What is DSA?"
+            >
+                What is DSA?
+            </button>
+
+            <button
+                class="ai-question"
+                data-question="Interview tips"
+            >
+                Interview Tips
+            </button>
+
+        </div>
+
+
+        <div
+            id="aiChatResult"
+            class="web-search-result"
+        >
+
+            <p>
+                AI answer yahan show hoga...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- COMMAND HISTORY -->
+    <!-- ================================= -->
+
+    <section class="feature-box">
+
+        <div class="history-header">
+
+            <h2 class="section-heading">
+                🕘 Command History
+            </h2>
+
+            <div>
+
+                <button
+                    id="refreshHistoryBtn"
+                >
+                    Refresh
+                </button>
+
+                <button
+                    id="clearHistoryBtn"
+                    class="danger-btn"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="commandHistory">
+
+            <p>
+                Loading history...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- FOOTER -->
+    <!-- ================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 AI Voice Assistant
+        </p>
+
+        <p>
+            Developed using Python, Flask,
+            HTML, CSS & JavaScript
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+</body>
+
+</html>

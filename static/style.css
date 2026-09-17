@@ -1,0 +1,1082 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    color: white;
+
+    background:
+        #050816;
+
+    overflow-x: hidden;
+}
+
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 180, 255, 0.15),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(140, 0, 255, 0.15),
+            transparent 30%
+        ),
+
+        #050816;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+    width: min(
+        1100px,
+        94%
+    );
+
+    margin: auto;
+
+    padding: 35px 0 50px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+header h1 {
+    font-size: 42px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+
+header p {
+    opacity: 0.75;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+    width: fit-content;
+
+    margin: 0 auto 20px;
+
+    padding: 10px 20px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   LANGUAGE
+========================================== */
+
+.language-box {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.language-box select {
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    outline: none;
+
+    background: #111827;
+
+    color: white;
+}
+
+
+/* ==========================================
+   ASSISTANT
+========================================== */
+
+.assistant-section {
+    text-align: center;
+
+    margin: 20px 0 40px;
+}
+
+
+.assistant-circle {
+    width: 270px;
+    height: 270px;
+
+    margin: auto;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.orb {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white 0%,
+            #62d8ff 12%,
+            #1787ff 42%,
+            #612cff 75%,
+            #180d3d 100%
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(50, 180, 255, 0.7),
+
+        0 0 80px
+        rgba(110, 50, 255, 0.45);
+
+    animation:
+        orbFloat 3s ease-in-out infinite;
+}
+
+
+.orb-inner {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.2);
+
+    filter: blur(5px);
+}
+
+
+.ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(
+            100,
+            200,
+            255,
+            0.25
+        );
+
+    pointer-events: none;
+}
+
+
+.ring1 {
+    width: 190px;
+    height: 190px;
+
+    animation:
+        rotateRing 7s linear infinite;
+}
+
+
+.ring2 {
+    width: 230px;
+    height: 230px;
+
+    border-style: dashed;
+
+    animation:
+        rotateRingReverse 10s linear infinite;
+}
+
+
+.ring3 {
+    width: 270px;
+    height: 270px;
+
+    border:
+        1px solid rgba(
+            170,
+            100,
+            255,
+            0.25
+        );
+
+    animation:
+        rotateRing 14s linear infinite;
+}
+
+
+@keyframes orbFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+@keyframes rotateRing {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes rotateRingReverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+}
+
+
+/* ==========================================
+   START BUTTON
+========================================== */
+
+.start-btn {
+    margin-top: 25px;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1688ff,
+            #762bff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(70, 80, 255, 0.3);
+
+    transition: 0.3s;
+}
+
+
+.start-btn:hover {
+    transform:
+        translateY(-3px)
+        scale(1.02);
+}
+
+
+/* ==========================================
+   OUTPUT
+========================================== */
+
+.output-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            1fr
+        );
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.output-card {
+    padding: 22px;
+
+    min-height: 130px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.output-card h3 {
+    margin-bottom: 12px;
+}
+
+
+.output-card p {
+    line-height: 1.6;
+
+    opacity: 0.85;
+}
+
+
+/* ==========================================
+   FEATURE BOX
+========================================== */
+
+.feature-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.055
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    font-size: 25px;
+}
+
+
+/* ==========================================
+   SEARCH ROW
+========================================== */
+
+.search-row {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.search-row input,
+.search-row select {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    outline: none;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.3
+        );
+
+    color: white;
+
+    font-size: 15px;
+}
+
+
+.search-row select option {
+    background: #111827;
+
+    color: white;
+}
+
+
+.search-row button,
+.quick-cities button,
+.history-topics button,
+.quick-questions button,
+.history-header button {
+    padding: 11px 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #177dff,
+            #702bff
+        );
+
+    transition: 0.25s;
+}
+
+
+.search-row button:hover,
+.quick-cities button:hover,
+.history-topics button:hover,
+.quick-questions button:hover,
+.history-header button:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+/* ==========================================
+   WORLD CLOCK
+========================================== */
+
+.clock-display {
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+.clock-date {
+    text-align: center;
+
+    margin-top: 5px;
+
+    opacity: 0.75;
+}
+
+
+/* ==========================================
+   QUICK CITIES
+========================================== */
+
+.quick-cities,
+.history-topics,
+.quick-questions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    justify-content: center;
+}
+
+
+/* ==========================================
+   WEATHER
+========================================== */
+
+.weather-result {
+    margin-top: 20px;
+}
+
+
+.weather-card {
+    padding: 22px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+}
+
+
+.weather-icon {
+    font-size: 50px;
+
+    margin: 10px 0;
+}
+
+
+.weather-temp {
+    font-size: 40px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+.weather-condition {
+    font-size: 18px;
+
+    opacity: 0.85;
+
+    margin-bottom: 15px;
+}
+
+
+.weather-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 10px;
+}
+
+
+.weather-detail {
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+}
+
+
+/* ==========================================
+   CALCULATOR
+========================================== */
+
+.calculator-box {
+    max-width: 500px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+#calcDisplay {
+    width: 100%;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+
+    color: white;
+
+    font-size: 28px;
+
+    text-align: right;
+}
+
+
+.calculator-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 10px;
+}
+
+
+.calculator-buttons button {
+    min-height: 60px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b263b,
+            #101827
+        );
+
+    box-shadow:
+        5px 5px 12px
+        rgba(0, 0, 0, 0.35),
+
+        -3px -3px 10px
+        rgba(255, 255, 255, 0.03);
+
+    transition: 0.2s;
+}
+
+
+.calculator-buttons button:active {
+    transform:
+        translateY(3px);
+}
+
+
+.calculator-buttons .operator {
+    background:
+        linear-gradient(
+            145deg,
+            #245d9e,
+            #182d4e
+        );
+}
+
+
+.calculator-buttons .equals {
+    grid-column:
+        span 2;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6b2cff,
+            #3020a0
+        );
+}
+
+
+.calculator-buttons .clear {
+    background:
+        linear-gradient(
+            145deg,
+            #9d263c,
+            #531321
+        );
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.history-result {
+    margin-top: 20px;
+
+    line-height: 1.7;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+}
+
+
+.history-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.history-header .section-heading {
+    margin: 0;
+}
+
+
+.danger-btn {
+    background:
+        #a52940 !important;
+}
+
+
+.command-history {
+    margin-top: 20px;
+}
+
+
+.history-item {
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+    border-left:
+        3px solid
+        #6c5ce7;
+}
+
+
+.history-command {
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+
+.history-answer {
+    opacity: 0.85;
+
+    line-height: 1.5;
+}
+
+
+.history-meta {
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    opacity: 0.5;
+}
+
+
+/* ==========================================
+   WEB SEARCH
+========================================== */
+
+.web-search-result {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    min-height: 70px;
+
+    border-radius: 15px;
+
+    line-height: 1.7;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+}
+
+
+/* ==========================================
+   AI CHAT
+========================================== */
+
+.ai-chat-box {
+    margin-top: 25px;
+}
+
+
+.feature-description {
+    text-align: center;
+
+    margin-bottom: 18px;
+
+    opacity: 0.75;
+}
+
+
+.ai-answer-card {
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    animation:
+        answerAppear
+        0.4s ease;
+}
+
+
+.ai-answer-title {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+.ai-answer-card p {
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+@keyframes answerAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    text-align: center;
+
+    margin-top: 40px;
+
+    padding: 25px;
+
+    opacity: 0.55;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (
+    max-width: 700px
+) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+
+    .output-container {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .search-row {
+        flex-direction:
+            column;
+    }
+
+
+    .weather-details {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .assistant-circle {
+        transform:
+            scale(0.85);
+    }
+
+
+    .history-header {
+        flex-direction:
+            column;
+    }
+
+}
